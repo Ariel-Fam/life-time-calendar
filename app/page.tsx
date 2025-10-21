@@ -169,7 +169,7 @@ export default function Home() {
                 tasks into smaller, manageable chunks.
               </li>
               <li className="mb-10">
-                <h1 className="text-2xl">Use a "Stop Doing" List:</h1>  Identify and eliminate non-essential
+                <h1 className="text-2xl">Use a &ldquo;Stop Doing&rdquo; List:</h1>  Identify and eliminate non-essential
                 activities that waste time.
               </li>
             </ol>
@@ -205,7 +205,7 @@ export default function Home() {
                 maintain motivation and reinforce positive behaviors.
               </li>
               <li className="mb-10">
-                <h1 className="text-2xl">Develop a "Pre-Game" Routine:</h1>  Establish consistent habits before
+                <h1 className="text-2xl">Develop a &ldquo;Pre-Game&rdquo; Routine:</h1>  Establish consistent habits before
                 starting important tasks or activities.
               </li>
               <li className="mb-10">
@@ -228,7 +228,7 @@ export default function Home() {
           height={270}
           width={270} 
           alt="img"
-          className="rounded-full  shadow-2xl mb-10 mt-20 "
+          className="rounded-full shadow-2xl mb-10 mt-20 "
           /> 
 
 

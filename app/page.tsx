@@ -60,7 +60,7 @@ export default function Home() {
 
         
 
-          <h1 className="mb-10 text-2xl sm:text-3xl">{ageValue ? `Your age in weeks: ${ageValue}`:""}</h1>
+          <h1 className="mb-10 text-2xl text-center sm:text-3xl">{ageValue ? `Your age in weeks: ${ageValue}`:""}</h1>
 
           <Image 
           src={"/imageCalendar.png"} 

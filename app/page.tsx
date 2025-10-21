@@ -1,103 +1,253 @@
+"use client"
+
+import EntrySector from "@/components/EntrySector";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+
+  type Age = {
+
+    age: string
+
+  }
+
+
+
+  const [age, setAgeNumber] = useState<string>("")
+
+  const [ageValue, setAgeValue] = useState<number>()
+
+
+
+  const handleSubmit = ({age: age}: Age) =>{
+
+
+    const ageConvert = Number(age)
+
+
+    const calculation = ageConvert * 52
+
+
+    setAgeValue(calculation)
+
+
+
+
+
+
+    
+
+  }
+
+
+  return (
+    <div className="flex flex-col items-center">
+
+
+      <div className="flex flex-col items-center w-[90vw] h-1200 bg-gray-500 px-4 py-6 rounded-3xl">
+
+        
+
+        <EntrySector onSubmit={handleSubmit} ageNumber={age} onAgeChange={setAgeNumber} />
+
+
+        <h1 className="text-2xl sm:text-3xl md:text-4xl mt-7 mb-7">Time Cards</h1>
+
+        
+        <div className=" flex flex-col items-center justify-center w-full sm:w-3/4 md:w-2/3 aspect-4/3 h-160 p-10 bg-white rounded-2xl">
+
+        
+
+          <h1 className="mb-10 text-2xl sm:text-3xl">{ageValue ? `Your age in weeks: ${ageValue}`:""}</h1>
+
+          <Image 
+          src={"/imageCalendar.png"} 
+          height={270}
+          width={270} 
+          alt="img"
+          className="rounded-full drop-shadow-black shadow-2xl  "
+          /> 
+
+
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+
+
+        <div className="w-full sm:w-3/4 md:w-2/3 aspect-4/3 mt-5 bg-white rounded-2xl p-12">
+
+          <div >
+            <h1 className="text-2xl mb-3 mt-7">Life Time Stats</h1>
+            <ul >
+              <h1 className="text-2xl">North America Stats:</h1>
+              <li className="mb-10">
+                <h3>
+
+                  Average North American life expectancy stats from 2023 in years:
+                  80 years
+                </h3>
+              </li>
+              <li >
+                Average North American life expectancy in expressed in weeks: 80
+                years x 52 weeks in 1 year = 4160 weeks total in a 80 year
+                lifetime
+              </li>
+
+              <h1 className="text-2xl mb-3 mt-7">Africa Stats:</h1>
+              <li className="mb-10">
+                Average African life expectancy stats from 2023 in years: 64
+                years
+              </li>
+              <li className="mb-10">
+                Average African life expectancy stats in expressed in weeks: 64
+                years x 52 weeks in 1 year = 3328 weeks total in a 64 year
+                lifetime
+              </li>
+
+              <h1 className="text-2xl mb-3 mt-7">Europe Stats:</h1>
+              <li className="mb-10">
+
+              
+                Average European life expectancy stats from 2023 in years: 81
+                years
+              </li>
+              <li className="mb-10">
+                Average European life expectancy stats in expressed in weeks: 81
+                years x 52 weeks in 1 year = 4212 weeks total in a 81 year
+                lifetime
+              </li>
+
+              <h1 className="text-2xl mb-3 mt-7">Asia Stats:</h1>
+              <li className="mb-10">
+                Average Asian life expectancy stats from 2023 in years: 82 years
+              </li>
+              <li>
+                Average European life expectancy stats in expressed in weeks: 81
+                years x 52 weeks in 1 year = 4264 weeks total in a 82 year
+                lifetime
+              </li>
+            </ul>
+          </div>
+
+
+        </div>
+
+
+
+        <div className="w-full sm:w-3/4 md:w-2/3 aspect-4/3 mt-5 bg-white rounded-2xl p-12">
+
+          <div >
+            <h3 className="text-2xl mb-5">Time Management Techniques:</h3>
+            <ol>
+              <li className="mb-10">
+                <h1 className="text-2xl">Pomodoro Technique:</h1>  Work in focused 25-minute increments,
+                followed by a 5-minute break.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Time Blocking:</h1>  Schedule fixed, uninterrupted blocks of time for
+                tasks and activities.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Prioritize Using the Eisenhower Matrix:</h1>  Categorize tasks into
+                urgent vs. important, and focus on the most critical ones first.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Avoid Multitasking:</h1>  Focus on one task at a time to maintain
+                quality and avoid distractions.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Use a Calendar or Planner:</h1>  Write down appointments, deadlines,
+                and tasks to stay organized and on track.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Set Realistic Goals:</h1>  Break down large goals into smaller,
+                achievable tasks to avoid procrastination.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Avoid Procrastination by Breaking Tasks Down:</h1>  Divide daunting
+                tasks into smaller, manageable chunks.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Use a "Stop Doing" List:</h1>  Identify and eliminate non-essential
+                activities that waste time.
+              </li>
+            </ol>
+          </div>
+
+
+        </div>
+
+
+        <div className="w-full sm:w-3/4 md:w-2/3 aspect-4/3 mt-5 bg-white rounded-2xl p-12">
+
+          <div>
+            <h3 className="text-2xl mb-7">Discipline Techniques:</h3>
+            <ol>
+              <li className="mb-10">
+                <h1 className="text-2xl">Set Clear Goals:</h1>  Establish specific, measurable goals to
+                maintain focus and motivation.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Create a Morning Routine:</h1>  Start the day with a consistent
+                routine to establish discipline and momentum.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Use Accountability Partners:</h1>  Share goals and progress with
+                friends or mentors for support and encouragement.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Track Your Progress:</h1>  Monitor your activities, habits, and
+                accomplishments to identify areas for improvement.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Reward Yourself:</h1>  Celebrate milestones and achievements to
+                maintain motivation and reinforce positive behaviors.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Develop a "Pre-Game" Routine:</h1>  Establish consistent habits before
+                starting important tasks or activities.
+              </li>
+              <li className="mb-10">
+                <h1 className="text-2xl">Stay Consistent:</h1>  Perform tasks at the same time every day to
+                build momentum and create healthy habits.
+              </li>
+              <li>
+                <h1 className="text-2xl">Use Physical Activity to Boost Discipline:</h1>  Incorporate physical
+                exercise into your daily routine to improve focus and
+                self-control.
+              </li>
+            </ol>
+          </div>
+        </div>
+
+
+
+        <Image 
+          src={"/space_pointer.png"} 
+          height={270}
+          width={270} 
+          alt="img"
+          className="rounded-full  shadow-2xl mb-10 mt-20 "
+          /> 
+
+
+        </div>
+
+
+
+        
+
+
+
+
+
+
+        
+      </div>
+
+
+    
+
   );
 }
